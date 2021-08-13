@@ -7,6 +7,7 @@ import PageNotFound from "./PageNotFound";
 import CoursesPage from "./courses/CoursesPage";
 
 function App() {
+  console.log("hi");
   return (
     <div className="contaniner-fluid">
       <Header />
