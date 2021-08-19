@@ -1,24 +1,26 @@
 import React from "react";
 
 class CoursesPage extends React.Component {
-  constructor(props) {
-    super(props);
+  state = {
+    course: {
+      title: "",
+    },
+  };
 
-    this.state = {
-      course: {
-        title: "",
-      },
-    };
-  }
-
-  handleChange(event) {
+  handleChange = (event) => {
     const course = { ...this.state.course, title: event.target.value };
     this.setState({ course }); // Object shorthand syntax
-  }
+  };
+
+  handleSubmit = (e) => {
+    e.preventDefault();
+    alert(this.state.course.title);
+  };
 
   render() {
     return (
-      <form>
+      // Submit with enter Key
+      <form onSubmit={this.handleSubmit}>
         <h2>Courses</h2>
         <h3>Add Course</h3>
         <input
@@ -27,7 +29,7 @@ class CoursesPage extends React.Component {
           value={this.state.course.title}
         />
 
-        <input type={this.state.course.title} />
+        <input type="submit" value="Save" />
       </form>
     );
   }
