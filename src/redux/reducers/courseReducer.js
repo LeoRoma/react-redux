@@ -1,4 +1,5 @@
 import * as types from "../actions/actionTypes";
+
 // With default keyword we can call with any name when we import
 export default function courseReducer(state = [], action) {
   switch (action.type) {
