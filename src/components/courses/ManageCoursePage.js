@@ -1,10 +1,21 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { loadAuthors } from "../../redux/actions/authorActions";
 import { loadCourses } from "../../redux/actions/courseActions";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
+import { newCourse } from "../../../tools/mockData";
+import CourseForm from "./CourseForm";
 
-const ManageCoursePage = ({ authors, courses, loadAuthors, loadCourses }) => {
+const ManageCoursePage = ({
+  authors,
+  courses,
+  loadAuthors,
+  loadCourses,
+  ...props
+}) => {
+  const [course, setCourse] = useState({ ...props.course });
+  const [errors, setErrors] = useState({});
+
   useEffect(() => {
     if (authors.length === 0) {
       loadAuthors().catch((error) => {
@@ -19,16 +30,13 @@ const ManageCoursePage = ({ authors, courses, loadAuthors, loadCourses }) => {
     }
   }, []); // The empty array as a second argument to effect means the effect will run once when the component mounts
 
-  return (
-    <>
-      <h2>Manage Course</h2>
-    </>
-  );
+  return <CourseForm course={course} errors={errors} authors={authors} />;
 };
 
 // Thanks to connect() 'line 57' automatically passes dispatch in
 ManageCoursePage.propTypes = {
   authors: PropTypes.array.isRequired,
+  course: PropTypes.object.isRequired,
   courses: PropTypes.array.isRequired,
   loadAuthors: PropTypes.func.isRequired,
   loadCourses: PropTypes.func.isRequired,
@@ -37,6 +45,7 @@ ManageCoursePage.propTypes = {
 // This function determines what state is passed to our components via props
 function mapStateToProps(state) {
   return {
+    course: newCourse,
     courses: state.courses,
     authors: state.authors,
   };
