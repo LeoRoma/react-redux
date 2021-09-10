@@ -27,7 +27,7 @@ export function loadCourses() {
   };
 }
 
-export function savedCourses(course) {
+export function saveCourse(course) {
   return function (dispatch, getState) {
     // Thunk return a function with dispatch
     return courseApi
