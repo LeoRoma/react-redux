@@ -9,6 +9,7 @@ import CourseForm from "./CourseForm";
 const ManageCoursePage = ({
   authors,
   courses,
+  history,
   loadAuthors,
   loadCourses,
   saveCourse,
@@ -39,12 +40,20 @@ const ManageCoursePage = ({
     }));
   }
 
+  function handleSave(event) {
+    event.preventDefault();
+    saveCourse(course).then(() => {
+      history.push("/courses");
+    });
+  }
+
   return (
     <CourseForm
       authors={authors}
       course={course}
       errors={errors}
       onChange={handleChange}
+      onSave={handleSave}
     />
   );
 };
@@ -53,6 +62,7 @@ ManageCoursePage.propTypes = {
   authors: PropTypes.array.isRequired,
   course: PropTypes.object.isRequired,
   courses: PropTypes.array.isRequired,
+  history: PropTypes.object.isRequired,
   loadAuthors: PropTypes.func.isRequired,
   loadCourses: PropTypes.func.isRequired,
   saveCourse: PropTypes.func.isRequired,
