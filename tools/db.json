@@ -69,6 +69,14 @@
       "slug": "web-components-shadow-dom",
       "authorId": 1,
       "category": "HTML5"
+    },
+    {
+      "id": 11,
+      "title": "Securing React Apps with Auth0 hello",
+      "authorId": 1,
+      "category": "sdf",
+      "createdAt": 1631799897308,
+      "slug": "securing-react-apps-with-auth0-hello"
     }
   ],
   "authors": [
