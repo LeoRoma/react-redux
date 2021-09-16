@@ -69,22 +69,6 @@
       "slug": "web-components-shadow-dom",
       "authorId": 1,
       "category": "HTML5"
-    },
-    {
-      "id": 11,
-      "title": "sdf",
-      "authorId": 1,
-      "category": "sdf",
-      "createdAt": 1631277869837,
-      "slug": "sdf"
-    },
-    {
-      "id": 12,
-      "title": "sdf",
-      "authorId": 2,
-      "category": "sdf",
-      "createdAt": 1631277931693,
-      "slug": "sdf"
     }
   ],
   "authors": [

@@ -7,7 +7,6 @@ import "./index.css";
 import configureStore from "./redux/configureStore";
 import { Provider as ReduxProvider } from "react-redux";
 
-// It can be useful to pass initial state into the store here if your server rendering or initializing your Redux store with data from localStorage
 const store = configureStore();
 
 render(
@@ -16,6 +15,5 @@ render(
       <App />
     </Router>
   </ReduxProvider>,
-
   document.getElementById("app")
 );
